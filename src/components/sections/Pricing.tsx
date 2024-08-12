@@ -1,6 +1,11 @@
+"use client";
 import React from "react";
 import CheckIcon from "@/assets/check.svg";
+
 import Image from "next/image";
+
+import { motion } from "framer-motion";
+
 const pricingTiers = [
   {
     title: "Free",
@@ -55,7 +60,7 @@ const pricingTiers = [
 
 const Pricing = () => {
   return (
-    <section className=" py-24  ">
+    <section className=" py-24 bg-white  ">
       <div className="container">
         <div className="max-w-[600px] mx-auto">
           <h2 className="text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001e80] text-transparent bg-clip-text  ">
@@ -70,7 +75,7 @@ const Pricing = () => {
           {pricingTiers.map((price, i) => (
             <div
               key={i}
-              className={`p-10 rounded-3xl shadow-[0_7px_14px_#eaeaea] border border-[#f1f1f1] max-w-xs w-full ${
+              className={`card ${
                 !!price.inverse && "border-black bg-black text-white"
               }`}
             >
@@ -84,9 +89,20 @@ const Pricing = () => {
                 </h3>
                 {!!price.popular && (
                   <div className="inline-flex text-sm px-4 py-1.5 rounded-xl border border-white/20">
-                    <span className="bg-[linear-gradient(to_right,#dd7ddf,#e1cd86,#bbcb92,#71c2ef,#3bffff,#dd7ddf)] text-transparent bg-clip-text font-medium ">
+                    <motion.span
+                      animate={{
+                        backgroundPositionX: "100%",
+                      }}
+                      transition={{
+                        duration: 1,
+                        repeat: Infinity,
+                        ease: "linear",
+                        repeatType: "loop",
+                      }}
+                      className="bg-[linear-gradient(to_right,#dd7ddf,#e1cd86,#bbcb92,#71c2ef,#3bffff,#dd7ddf,#e1cd86,#bbcb92,#71c2ef,#3bffff)] [background-size:200%] text-transparent bg-clip-text font-medium "
+                    >
                       Popular
-                    </span>
+                    </motion.span>
                   </div>
                 )}
               </div>

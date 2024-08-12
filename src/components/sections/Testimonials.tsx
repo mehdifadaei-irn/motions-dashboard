@@ -8,7 +8,7 @@ import avatar7 from "@/assets/avatar-7.png";
 import avatar8 from "@/assets/avatar-8.png";
 import avatar9 from "@/assets/avatar-9.png";
 
-const testimonials = [
+export const testimonials = [
   {
     text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
     imageSrc: avatar1.src,
@@ -65,6 +65,45 @@ const testimonials = [
   },
 ];
 
-export const Testimonials = () => {
-  return null;
+const firstColumn = testimonials.slice(0, 3);
+const secColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+
+import TestmonialCol from "../ui/TestmonialCol";
+
+const Testimonials = () => {
+  return (
+    <section className="bg-white py-0  ">
+      <div className="container">
+        <div className="max-w-[600px] mx-auto">
+          <div className="flex justify-center">
+            <div className="tag">Testimonials</div>
+          </div>
+          <h2 className=" mt-5 text-center text-3xl md:text-[54px] md:leading-[60px] font-bold tracking-tighter bg-gradient-to-b from-black to-[#001e80] text-transparent bg-clip-text  ">
+            What our users say
+          </h2>
+          <p className="text-center mt-5 text-[22px] leading-[30px] tracking-tight text-[#010d3e] ">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis
+            officiis delectus, recusandae vero tenetur ullam debitis distinctio
+            laborum adipisci incidunt necessitatibus? Placeat adipisci,
+          </p>
+        </div>
+        <div className="flex justify-center gap-6 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] mt-10 max-h-[738px] overflow-hidden">
+          <TestmonialCol testmonials={firstColumn} duration={15} />
+          <TestmonialCol
+            testmonials={secColumn}
+            duration={17}
+            className="hidden lg:block"
+          />
+          <TestmonialCol
+            testmonials={thirdColumn}
+            duration={19}
+            className="hidden md:block"
+          />
+        </div>
+      </div>
+    </section>
+  );
 };
+
+export default Testimonials;
