@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -15,8 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="relative antialiased bg-[#EAEEFE]">
-      <body className={dmSans.className}>{children}</body>
+    <html lang="en" className=" " >
+      <body
+        className={cn(
+          dmSans.className,
+          "relative antialiased bg-[#EAEEFE] min-h-full"
+        )}
+      >
+        {children}
+      </body>
     </html>
   );
 }

@@ -4,6 +4,10 @@ import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from "@/assets/logosaas.png";
 import MenuIcon from "@/assets/menu.svg";
 import Image from "next/image";
+import AnimatedBackground from "../ui/animatedBg";
+import Link from "next/link";
+
+const TABS = ["About", "Features", "Dashboard", "Update", "Help"];
 
 const Header = () => {
   return (
@@ -12,7 +16,13 @@ const Header = () => {
         <p className="text-white/60 hidden md:block">
           I am Mehdi Fadaei Front end developer
         </p>
-        <div className="inline-flex gap-1 items-center">
+        <a
+          href="https://online.publuu.com/608965/1362716"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="View Full Résumé (opens in a new tab)"
+          className="inline-flex gap-1 items-center"
+        >
           <p>Get My Resume</p>
           <Image
             src={ArrowRight}
@@ -21,7 +31,7 @@ const Header = () => {
             height={70}
             className="h-5 w-5 inline-flex pt-px justify-center items-center"
           />
-        </div>
+        </a>
       </div>
       <div className="py-5">
         <div className="container">
@@ -35,11 +45,30 @@ const Header = () => {
               className="h-8 w-8 inline-flex pt-px justify-center items-center md:hidden"
             />
             <nav className="hidden md:flex gap-6 text-black/60 items-center ">
-              <a href="">About</a>
-              <a href="">Features</a>
-              <a href="">Customers</a>
-              <a href="">Update</a>
-              <a href="">Help</a>
+              <div className="flex flex-row">
+                <AnimatedBackground
+                  defaultValue={TABS[2]}
+                  className="rounded-lg bg-[#38bdf8]/60  dark:bg-zinc-800"
+                  transition={{
+                    type: "spring",
+                    bounce: 0.1,
+                    duration: 0.2,
+                  }}
+                  enableHover
+                >
+                  {TABS.map((tab, index) => (
+                    <Link
+                      key={index}
+                      data-id={tab}
+                      href={"/dashboard"}
+                      // type="button"
+                      className="px-2 py-0.5 text-zinc-600 transition-colors duration-300 hover:text-zinc-100 dark:text-zinc-400 dark:hover:text-zinc-500"
+                    >
+                      {tab}
+                    </Link>
+                  ))}
+                </AnimatedBackground>
+              </div>
               <button className="bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight ">
                 Get for free
               </button>
