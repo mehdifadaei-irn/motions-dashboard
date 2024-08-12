@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef } from "react";
 import pyrmidImage from "@/assets/pyramid.png";
-import prodimage from "@/assets/product-image.png";
+import prodimage from "@/assets/product-image1.png";
 import tubeImage from "@/assets/tube.png";
 
 import Image from "next/image";
