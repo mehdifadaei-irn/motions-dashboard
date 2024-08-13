@@ -17,7 +17,7 @@ const Header = () => {
           I am Mehdi Fadaei Front end developer
         </p>
         <a
-          href="https://online.publuu.com/608965/1362716"
+          href="https://online.publuu.com/608965/1385509"
           target="_blank"
           rel="noreferrer noopener"
           aria-label="View Full Résumé (opens in a new tab)"
