@@ -17,7 +17,7 @@ const Header = () => {
           I am Mehdi Fadaei Front end developer
         </p>
         <a
-          href="/Mehdi_Fadaei-front-end.pdf"
+          href="/Mehdi_Fadaei_front_end.pdf"
           download
           target="_blank"
           rel="noreferrer noopener"
